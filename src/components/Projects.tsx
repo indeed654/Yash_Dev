@@ -1,4 +1,5 @@
 import { projects } from '../data/portfolio'
+import ProjectCard from './ui/ProjectCard'
 
 export default function Projects() {
   return (
@@ -14,42 +15,12 @@ export default function Projects() {
 
         <div className="grid gap-4 lg:grid-cols-3">
           {projects.map((project) => (
-            <article
+            <ProjectCard
               key={project.title}
-              className="flex min-h-[360px] flex-col rounded-[1.5rem] border border-gray-200/80 bg-[#f0f0ee]/70 p-5 backdrop-blur transition-all duration-200 hover:-translate-y-1 hover:scale-[1.01] hover:border-blue-200 hover:bg-white/80 hover:shadow-[0_28px_90px_rgba(17,24,39,0.09)]"
-            >
-              <h3 className="text-[18px] leading-snug font-medium text-gray-900">{project.title}</h3>
-
-              <div className="mt-5 flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-white/80 bg-white/75 px-3 py-1.5 text-[12px] font-medium text-blue-500"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <ul className="mt-6 grid gap-2">
-                {project.features.map((feature) => (
-                  <li key={feature} className="flex gap-2 text-[13px] leading-6 text-gray-600">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-auto pt-7">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 text-[13px] font-medium text-blue-500 transition-colors duration-200 hover:text-blue-600 group"
-                >
-                  Discuss project
-                  <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-                </a>
-              </div>
-            </article>
+              title={project.title}
+              tech={project.tech}
+              features={project.features}
+            />
           ))}
         </div>
       </div>
