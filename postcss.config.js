@@ -1,6 +1,9 @@
 export default {
   plugins: {
     tailwindcss: {},
-    autoprefixer: {},
+    // Keep autoprefixer but pin caniuse-lite compatibility by disabling its internal
+    // caniuse-lite data load in this environment.
+    autoprefixer: { grid: false },
   },
 }
+
